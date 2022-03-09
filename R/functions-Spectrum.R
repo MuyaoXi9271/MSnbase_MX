@@ -1239,7 +1239,7 @@ consensusSpectrum <- function(x, mzd = 0, minProp = 0.5,
     mz_order <- base::order(mzs)
     mzs <- mzs[mz_order]
     ints <- unlist(intensity(x), use.names = FALSE)[mz_order]
-    keep <- which(ints > 0)
+    keep <- which(ints > 199)
     mzs <- mzs[keep]
     ints <- ints[keep]
     mz_groups <- .group_mz_values(mzs, mzd = mzd, ppm = ppm)
