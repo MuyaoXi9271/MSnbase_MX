@@ -53,7 +53,7 @@ writeMgfDataFile <- function(splist, con, COM = NULL, TITLE = NULL,
   }
   cat(paste0("COM=",COM), file = con, sep = "")
 
-  
+
   verbose <- verbose & length(splist) > 1
 
   if (verbose)
@@ -158,6 +158,13 @@ readMgfData <- function(filename,
   }
   if (verbose)
     close(pb)
+
+  ## This checks that the headers are all the same
+  fdn <- sapply(fdata, names, simplify = FALSE)
+  fdn1 <- fdn[[1]]
+  if (!all(sapply(fdn, function(x) identical(x, fdn1)))) {
+      stop("Ion headers identical.")
+  }
 
   fdata <- do.call(rbind, fdata)
 

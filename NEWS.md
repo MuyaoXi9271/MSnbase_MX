@@ -1,4 +1,95 @@
+# MSnbase 2.31
+
+## MSnbase 2.31.1
+
+- Disable nested parallel processing for `chromatogram()` method.
+- Fix Rd notes.
+
+# MSnbase 2.31.0
+
+- New Bioconductor devel.
+
+# MSnbase 2.29
+
+## MSnbase 2.29.4
+
+- Move XML to suggests.
+
+## MSnbase 2.29.3
+
+- Remove parts of XML dependency.
+
+## MSnbase 2.29.2
+
+- Use fragmentation functions from PSMatch.
+- Mention R for Mass Spectrometry in start-up message.
+
+## MSnbase 2.29.1
+
+- Check for identical ion header in `readMgfData()` (see [issue
+  597](https://github.com/lgatto/MSnbase/issues/597)).
+
+## MSnbase 2.29.0
+
+- New devel
+
+# MSnbase 2.27
+
+## MSnbase 2.27.1
+
+- Fix declarations of centroided/smoothed setters for OnDiskMSnExp
+  objects (from Hervé Pagès via Github).
+
+## MSnbase 2.27.0
+
+- New devel
+
+# MSnbase 2.25
+
+## MSnbase 2.25.2
+
+- Fix bug in descendPeaks (see [#583](https://github.com/lgatto/MSnbase/issues/583))
+
+## MSnbase 2.25.1
+
+- Fix remote mztab filename.
+
+## MSnbase 2.25.0
+
+- New devel (Bioc 3.17)
+
+# MSnbase 2.24
+
+## MSnbase 2.24.0
+
+- New release (Bioc 3.16)
+
+# MSnbase 2.23
+
+## Changes in 2.23.2
+
+- Fix robust aggregation for MsCoreUtils 1.9.2.
+
+## Changes in 2.23.1
+
+- Import `spectrapply` generic from `ProtGenerics`.
+
+## Changes in 2.23.0
+
+- New release (Bioc 3.16)
+
+# MSnbase 2.22
+
+## Changes in 2.22.0
+
+- New release (Bioc 3.15)
+
 # MSnbase 2.21
+
+## Changes in 2.21.7
+
+- Fix *mz* calculation in `calculateFragments` for neutral losses with a
+  charge > 1 (see [issue 573](https://github.com/lgatto/MSnbase/issues/573)).
 
 ## Changes in 2.21.6
 

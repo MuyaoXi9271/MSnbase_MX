@@ -6,6 +6,7 @@ import(grid)
 import(BiocGenerics)
 import(ProtGenerics)
 importMethodsFrom(ProtGenerics, bin)
+importMethodsFrom(ProtGenerics, spectrapply)
 importClassesFrom(ProtGenerics, ProcessingStep)
 import(BiocParallel)
 import(Biobase)
@@ -16,12 +17,14 @@ import(scales)
 import(lattice)
 import(methods)
 
+importFrom(PSMatch,
+           getAminoAcids,
+           defaultNeutralLoss)
+
 importFrom(MsCoreUtils, closest, rbindFill,
            impute_matrix, normalize_matrix,
            robustSummary, medianPolish,
            formatRt)
-importFrom(XML, xmlInternalTreeParse, getDefaultNamespace, xpathApply,
-           xmlAttrs)
 importFrom(graphics, abline, axis, grid, legend, lines, points, text,
            barplot, layout, par, matplot, mtext)
 importFrom(stats, ave, median, medpolish, quantile, reorder, setNames,
@@ -73,7 +76,6 @@ S3method(t, MSnSet)
 export(MSnSet,
        abstract,
        compareMSnSets,
-       defaultNeutralLoss,
        readMgfData,
        readMSData,
        readMSData2,
@@ -110,8 +112,6 @@ export(MSnSet,
        updateFeatureNames,
        updateSampleNames,
        normalise, ## for normalize method
-       get.amino.acids,
-       get.atomic.mass,
        listOf,
        npcv,
        selectFeatureData,
@@ -326,11 +326,11 @@ exportMethods(updateObject,
               "isolationWindowUpperMz",
               "filterPrecursorMz",
               "filterIsolationWindow",
-	      "alignRt",
-	      "filterIntensity",
-	      c,
-	      compareChromatograms,
-	      transformIntensity
+              "alignRt",
+              "filterIntensity",
+              c,
+              compareChromatograms,
+              transformIntensity
               )
 
 ## methods NOT exported

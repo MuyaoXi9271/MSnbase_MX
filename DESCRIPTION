@@ -1,6 +1,6 @@
 Package: MSnbase
 Title: Base Functions and Classes for Mass Spectrometry and Proteomics
-Version: 2.21.6
+Version: 2.31.1
 Description: MSnbase provides infrastructure for manipulation,
              processing and visualisation of mass spectrometry and
              proteomics data, ranging from raw to quantitative and
@@ -51,18 +51,23 @@ Authors@R: c(person(given = "Laurent", family = "Gatto",
              person(given = "Miguel", family = "Cosenza-Contreras",
                     email = "migueljcc5@gmail.com",
                     role = "ctb"),
+             person(given = "Pascal", family = "Maas",
+                    email = "p.maas@lacdr.leidenuniv.nl",
+                    comment = c(ORCID = "0000-0001-9379-6041"),
+                    role = "ctb"),
              person(given = "Johannes", family = "Rainer",
                     email = "Johannes.Rainer@eurac.edu",
                     role = c("aut", "cre"),
                     comment = c(ORCID = "0000-0002-6977-7147")),
              person(given = "Sebastian", family = "Gibb",
                     email = "mail@sebastiangibb.de",
-                    role = c("aut", "cre")))
+                    role = c("aut", "cre"),
+                    comment=c(ORCID="0000-0001-7406-4443")))
 Author: Laurent Gatto, Johannes Rainer and Sebastian Gibb with
     contributions from Guangchuang Yu, Samuel Wieczorek, Vasile-Cosmin
     Lazar, Vladislav Petyuk, Thomas Naake, Richie Cotton, Arne Smits,
-    Martina Fisher, Ludger Goeminne, Adriaan Sticker and Lieven
-    Clement.
+    Martina Fisher, Ludger Goeminne, Adriaan Sticker, Lieven
+    Clement and Pascal Maas.
 Maintainer: Laurent Gatto <laurent.gatto@uclouvain.be>
 Depends:
     R (>= 3.5),
@@ -71,9 +76,10 @@ Depends:
     Biobase (>= 2.15.2),
     mzR (>= 2.29.3),
     S4Vectors,
-    ProtGenerics (>= 1.27.2)
+    ProtGenerics (>= 1.29.1)
 Imports:
     MsCoreUtils,
+    PSMatch,
     BiocParallel,
     IRanges (>= 2.13.28),
     plyr,
@@ -88,7 +94,6 @@ Imports:
     digest,
     lattice,
     ggplot2,
-    XML,
     scales,
     MASS,
     Rcpp
@@ -113,6 +118,7 @@ Suggests:
     imputeLCMD,
     norm,
     gplots,
+    XML,
     shiny,
     magrittr,
     SummarizedExperiment
@@ -126,7 +132,7 @@ URL: https://lgatto.github.io/MSnbase
 biocViews: ImmunoOncology, Infrastructure, Proteomics, MassSpectrometry,
     QualityControl, DataImport
 Roxygen: list(markdown=TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 Collate:
     'AllClassUnions.R'
     'AllGenerics.R'
@@ -162,10 +168,8 @@ Collate:
     'functions-Spectrum1.R'
     'functions-Spectrum2.R'
     'functions-addIdentificationData.R'
-    'functions-fragments.R'
     'functions-mzR.R'
     'functions-plotting.R'
-    'header.R'
     'hmap.R'
     'iPQF.R'
     'iTRAQ4.R'
