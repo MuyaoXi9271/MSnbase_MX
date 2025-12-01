@@ -52,7 +52,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { os: ubuntu-latest, r: '4.4', bioc: '3.19', cont: "bioconductor/bioconductor_docker:devel", rspm: "https://packagemanager.rstudio.com/cran/__linux__/jammy/latest" }
+          - { os: ubuntu-latest, r: '4.5', bioc: '3.21', cont: "bioconductor/bioconductor_docker:devel", rspm: "https://packagemanager.rstudio.com/cran/__linux__/jammy/latest" }
           ## - { os: macOS-latest, r: '4.4', bioc: '3.19'}
           ## - { os: windows-latest, r: '4.4', bioc: '3.19'}
           ## Check https://github.com/r-lib/actions/tree/master/examples
@@ -187,6 +187,12 @@ jobs:
           cd preprocessCore
           R CMD INSTALL --configure-args="--disable-threading"  .
 
+      - name: Install latest PSMatch from github
+        run: |
+          BiocManager::install("RforMassSpectrometry/PSMatch", ask = FALSE, force = TRUE)
+        continue-on-error: true
+        shell: Rscript {0}
+
       - name: Install dependencies pass 2
         run: |
           ## Pass #2 at installing dependencies
@@ -247,12 +253,12 @@ jobs:
           BiocGenerics:::testPackage()
         shell: Rscript {0}
 
-      - name: Test coverage
+      ## - name: Test coverage
         ## if: github.ref == 'refs/heads/devel' && env.run_covr == 'true' && runner.os == 'Linux'
-        if: env.run_covr == 'true' && runner.os == 'Linux'
-        run: |
-          covr::codecov()
-        shell: Rscript {0}
+        ## if: env.run_covr == 'true' && runner.os == 'Linux'
+        ## run: |
+        ##  covr::codecov()
+        ## shell: Rscript {0}
 
       - name: Install package
         # if: github.ref == 'refs/heads/devel' && env.run_pkgdown == 'true' && runner.os == 'Linux'

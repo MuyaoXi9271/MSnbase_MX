@@ -1,3 +1,49 @@
+# MSnbase 2.35
+
+## 2.35.2
+
+- Second fix error from adding Selenocysteine and Pyrrolysine to
+  PSMatch AA table.
+- Import PSmatch >= 1.13.3.
+
+## 2.35.1
+
+- Fix error from adding Selenocysteine and Pyrrolysine to PSMatch AA
+  table.
+
+## 2.35.0
+
+- New devel version
+
+# MSnbase 2.33
+
+## MSnbase 2.33.5
+
+- Remove `methods-fragments.R` (is now part of `PSMatch`).
+
+## MSnbase 2.33.4
+
+- Fix bug in `MzTab()` (see issue #608).
+
+## MSnbase 2.33.3
+
+- Fix failing unit test.
+
+## MSnbase 2.33.2
+
+- Fix the `pheplus1` code chunk in MSnbase-demo vignette to handle the
+  new `Rdispo::getIsotope()` list return value.
+
+## MSnbase 2.33.1
+
+- Add functionality to convert a `Spectra` object to a `MSpectra`.
+- Suggest pRolocdata (>= 1.43.2.1) (that has some extdata, needed to
+  other packages' vignettes).
+
+## MSnbase 2.33.0
+
+- New Bioc devel version
+
 # MSnbase 2.31
 
 ## MSnbase 2.31.1
@@ -5,7 +51,7 @@
 - Disable nested parallel processing for `chromatogram()` method.
 - Fix Rd notes.
 
-# MSnbase 2.31.0
+## MSnbase 2.31.0
 
 - New Bioconductor devel.
 

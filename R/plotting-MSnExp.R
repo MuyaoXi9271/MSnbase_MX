@@ -102,14 +102,15 @@ plotMzDelta_MSnExp <- function(object,            ## MSnExp object
                         ggtitle("Histogram of Mass Delta Distribution")
     if (withLabels) {
         y_offset <- x_offset <- rep(0.5, 21)
-        names(y_offset) <- names(x_offset) <- PSMatch::getAminoAcids()$AA
+        ## Ignore Selenocysteine and Pyrrolysine (positions 22 and 23)
+        names(y_offset) <- names(x_offset) <- PSMatch::getAminoAcids()$AA[1:21]
         x_offset[c("I", "L", "K", "Q")] <- 1
         y_offset[c("V", "C")] <- 1
         y_offset[c("P", "T")] <- 0
         y_offset[c("N", "E")] <- 1
         y_offset[c("K", "Q", "I", "L")] <- 0
         y_offset[c("D", "M")] <- 0
-        aa <- cbind(PSMatch::getAminoAcids(), x_offset, y_offset)
+        aa <- cbind(PSMatch::getAminoAcids()[1:21,], x_offset, y_offset)
         ## removing Isoleucine, as it has the same residue mass
         ## as leucine, and updating leucine's label to I/L
         aa$AA <- as.character(aa$AA)
